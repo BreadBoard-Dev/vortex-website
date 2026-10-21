@@ -128,7 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
   fetchLatestRelease();
 
   // ==========================================================================
-  // GALLERY DATA (WITHOUT DEVELOPER LICENSE MANAGER SNAPSHOTS)
+  // GALLERY DATA (12 PURE APPLICATION UI SNAPSHOTS)
+  // All internal developer tools & retail cover tiles removed
   // ==========================================================================
   const galleryItems = [
     {
@@ -151,13 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
       category: 'dashboard',
       badge: 'Task Creation',
       desc: 'Custom download task setup supporting 1 to 32 parallel sockets, session cookies, referer headers, and destination paths.'
-    },
-    {
-      src: 'snapshots/vortex_product_box.jpg',
-      title: 'Official 3D Retail Box',
-      category: 'dashboard',
-      badge: 'Product Packaging',
-      desc: 'Official 3D packaging mockup with blue vortex tornado branding, multi-browser badges, and core feature pillars.'
     },
     {
       src: 'snapshots/04_vortex_browser_integration_manager.png',
