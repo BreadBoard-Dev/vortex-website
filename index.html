@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vortex Download Manager (VDM) — Maximum Speed Download Accelerator</title>
+  <meta name="description" content="Vortex Download Manager (VDM) delivers turbocharged multi-connection segmented downloads, dynamic socket work-stealing, crash recovery, and browser integration.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="snapshots/16_vortex_product_cover_box.png">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header class="site-header">
+    <div class="container nav-container">
+      <a href="#hero" class="brand-logo">
+        <div class="logo-icon">⚡</div>
+        <span class="brand-text">Vortex DM</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#features" class="nav-link">Features</a></li>
+        <li><a href="#gallery" class="nav-link">Snapshots</a></li>
+        <li><a href="#pricing" class="nav-link">Pricing & Licenses</a></li>
+        <li><a href="#download" class="nav-link">Downloads</a></li>
+        <li><a href="#faq" class="nav-link">FAQ</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <a href="#pricing" class="btn btn-secondary btn-sm">Buy License (₹200)</a>
+        <a href="#download" class="btn btn-primary btn-sm">Download v1.0.1</a>
+        <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div>
+          <span class="badge badge-cyan">v1.0.1 Released • Windows & Android Available</span>
+        </div>
+        <h1 class="hero-headline">
+          Maximum Speed <br>
+          <span class="text-gradient">Segmented Download</span><br>
+          Accelerator
+        </h1>
+        <p class="hero-lead">
+          Engineered for raw transfer saturation. Features dynamic socket work-stealing, disk pre-allocation, Manifest V3 browser integration, and instant crash recovery—with zero bloated external dependencies.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#download" class="btn btn-primary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download v1.0.1 Free Trial
+          </a>
+          <a href="https://rzp.io/rzp/VDMPP" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            Buy Lifetime License (₹200 INR)
+          </a>
+        </div>
+
+        <div class="hero-meta">
+          <span class="hero-meta-item">✓ Windows 10 & 11 (64-bit)</span>
+          <span class="hero-meta-item">✓ 30-Day Unrestricted Evaluation</span>
+          <span class="hero-meta-item">✓ Chrome, Edge, Firefox, Brave</span>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="product-box-wrapper">
+          <img src="snapshots/16_vortex_product_cover_box.png" alt="Vortex Download Manager 3D Retail Box" class="product-box-img">
+          
+          <div class="floating-pill floating-pill-1">
+            <span style="color: #38bdf8; font-size: 1.1rem;">⚡</span>
+            <span>Up to 32x Parallel Sockets</span>
+          </div>
+
+          <div class="floating-pill floating-pill-2">
+            <span style="color: #10b981; font-size: 1.1rem;">🛡️</span>
+            <span>Byte-Accurate Crash Recovery</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics / Stats Bar -->
+  <section class="stats-bar">
+    <div class="container stats-grid">
+      <div class="stat-card">
+        <div class="stat-value">32x</div>
+        <div class="stat-label">Parallel HTTP/HTTPS Range Streams</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">100%</div>
+        <div class="stat-label">Byte-Accurate Resumption & Assembly</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">Zero</div>
+        <div class="stat-label">Mandatory Third-Party Dependencies</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">₹200</div>
+        <div class="stat-label">One-Time Perpetual Lifetime License</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-cyan section-tag">Engine Highlights</span>
+        <h2 class="section-title">Built From the Ground Up for Speed & Control</h2>
+        <p class="section-subtitle">
+          Unlike ordinary downloaders that stall on slow connections, Vortex employs intelligent dynamic work-stealing to ensure your bandwidth is continuously saturated.
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <!-- Feature 1 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap">⚡</div>
+          <h3 class="feature-title">Dynamic Socket Work-Stealing</h3>
+          <p class="feature-desc">
+            When one socket finishes its chunk earlier than others, the engine automatically splits the largest remaining active segment in real time to keep all streams fully active.
+          </p>
+          <span class="feature-pill">HTTP Range bytes=start-end</span>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap">💾</div>
+          <h3 class="feature-title">Disk Pre-Allocation & Crash Recovery</h3>
+          <p class="feature-desc">
+            Pre-allocates sparse target files to avoid disk fragmentation and out-of-space crashes. Journaled metadata (<code style="color: #38bdf8;">.vdm.meta</code>) ensures instant crash resumption.
+          </p>
+          <span class="feature-pill">Atomic 2MB Buffered Assembly</span>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap">🌐</div>
+          <h3 class="feature-title">Universal Browser Integration</h3>
+          <p class="feature-desc">
+            Seamlessly captures browser downloads with Manifest V3 extensions for Google Chrome, Microsoft Edge, Brave, and Mozilla Firefox via Native Messaging.
+          </p>
+          <span class="feature-pill">Manifest V3 + Native Messaging</span>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap">🎬</div>
+          <h3 class="feature-title">Smart Video & Media Sniffer</h3>
+          <p class="feature-desc">
+            Detects video and audio streams embedded in HTML5 web players. Features a one-click overlay sniffer button to download M3U8 HLS, DASH, and direct video links.
+          </p>
+          <span class="feature-pill">HLS M3U8 • MPD DASH • MP4</span>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap">📊</div>
+          <h3 class="feature-title">Live Segment Visualizer</h3>
+          <p class="feature-desc">
+            Watch your file download in real time. The interactive visualizer displays each individual connection socket, chunk boundaries, and work-stealing splits.
+          </p>
+          <span class="feature-pill">Real-Time Telemetry</span>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap">🎛️</div>
+          <h3 class="feature-title">Token Bucket Bandwidth Limiter</h3>
+          <p class="feature-desc">
+            Fine-tune download speeds with a token-bucket rate limiter. Apply global bandwidth caps or throttle individual priority tasks without dropping sockets.
+          </p>
+          <span class="feature-pill">Smooth Rate Shaping</span>
+        </div>
+
+        <!-- Feature 7 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap">🔒</div>
+          <h3 class="feature-title">Checksum Integrity Verifier</h3>
+          <p class="feature-desc">
+            Built-in cryptographic hash verification. Validate downloaded files against SHA-256, SHA-1, and MD5 hashes instantly from the tools menu.
+          </p>
+          <span class="feature-pill">SHA-256 • MD5 • SHA-1</span>
+        </div>
+
+        <!-- Feature 8 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap">📱</div>
+          <h3 class="feature-title">Native Android Companion</h3>
+          <p class="feature-desc">
+            A native mobile companion built with Kotlin and Jetpack Compose featuring persistent Foreground Services, chunk work-stealing, and Android Share Sheet interception.
+          </p>
+          <span class="feature-pill">Kotlin • Jetpack Compose</span>
+        </div>
+
+        <!-- Feature 9 -->
+        <div class="feature-card">
+          <div class="feature-icon-wrap">🔄</div>
+          <h3 class="feature-title">In-App Update Engine</h3>
+          <p class="feature-desc">
+            Check for new releases with one click from within the desktop app (<code style="color: #38bdf8;">Help → Check for Updates</code>) without needing to visit third-party download sites.
+          </p>
+          <span class="feature-pill">v1.0.1 Ready</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Snapshots Showcase / Gallery -->
+  <section class="section" id="gallery" style="background: rgba(15, 23, 42, 0.3);">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-pink section-tag">Visual Tour</span>
+        <h2 class="section-title">Application Snapshots & Interface</h2>
+        <p class="section-subtitle">
+          Explore the clean dark-mode desktop interface, live telemetry, browser integration hub, and developer utility suite. Click any snapshot to expand in high resolution.
+        </p>
+      </div>
+
+      <!-- Category Filter Tabs -->
+      <div class="gallery-filters">
+        <button class="filter-btn active" data-filter="all">All Snapshots (16)</button>
+        <button class="filter-btn" data-filter="dashboard">Dashboard & Visualizer</button>
+        <button class="filter-btn" data-filter="settings">Settings & Integration</button>
+        <button class="filter-btn" data-filter="license">Licensing & Updates</button>
+        <button class="filter-btn" data-filter="tools">Developer Tools</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+        <!-- Rendered dynamically by script.js -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing & Licenses Section -->
+  <section class="section" id="pricing">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-green section-tag">Transparent Pricing</span>
+        <h2 class="section-title">Flexible Plans for Every User</h2>
+        <p class="section-subtitle">
+          Enjoy unrestricted multi-segment acceleration. Start with a full 30-day evaluation or upgrade to a lifetime perpetual license for the price of a cup of coffee.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <!-- 30-Day Evaluation -->
+        <div class="pricing-card">
+          <h3 class="pricing-plan">30-Day Free Trial</h3>
+          <p class="pricing-sub">Full access to test all high-speed segmented features.</p>
+          <div class="pricing-price-wrap">
+            <span class="pricing-amount">₹0</span>
+            <span class="pricing-period">/ 30 Days</span>
+          </div>
+          <ul class="pricing-features">
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Up to 32 Parallel Sockets</li>
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Dynamic Chunk Work-Stealing</li>
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Chrome, Edge & Firefox Extensions</li>
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Zero Ads or Data Harvesting</li>
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Live Segment Visualizer</li>
+          </ul>
+          <a href="#download" class="btn btn-secondary">Download Free Trial</a>
+        </div>
+
+        <!-- Lifetime Perpetual (Featured) -->
+        <div class="pricing-card featured">
+          <h3 class="pricing-plan">Perpetual Lifetime</h3>
+          <p class="pricing-sub">One-time payment. Never pay again. Unlimited updates.</p>
+          <div class="pricing-price-wrap">
+            <span class="pricing-amount">₹200</span>
+            <span class="pricing-period">INR (One-Time)</span>
+          </div>
+          <ul class="pricing-features">
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> <strong>Lifetime Unlimited Usage</strong></li>
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Free Minor & Major Updates Included</li>
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Max 32 Parallel Connections</li>
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Instant Digital Key Delivery</li>
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Priority Email Support Channel</li>
+          </ul>
+          <a href="https://rzp.io/rzp/VDMPP" target="_blank" rel="noopener noreferrer" class="btn btn-primary">
+            Buy Lifetime via Razorpay (₹200)
+          </a>
+        </div>
+
+        <!-- 1-Year Promotional / Giveaway -->
+        <div class="pricing-card">
+          <h3 class="pricing-plan">1-Year Giveaway</h3>
+          <p class="pricing-sub">For WinningPC & Giveaway of the Day participants.</p>
+          <div class="pricing-price-wrap">
+            <span class="pricing-amount">FREE</span>
+            <span class="pricing-period">/ 1 Year Promo</span>
+          </div>
+          <ul class="pricing-features">
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 365 Days Full Feature Access</li>
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> All Acceleration & Work-Stealing Feats</li>
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Free Minor Updates within v1.0.x</li>
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Standard Community Support</li>
+            <li class="pricing-feature"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Seamless In-App Key Activation</li>
+          </ul>
+          <a href="#faq" class="btn btn-secondary">Learn How to Activate</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download & Installation Section -->
+  <section class="section" id="download" style="background: rgba(15, 23, 42, 0.4);">
+    <div class="container">
+      <div class="download-box">
+        <div class="download-info">
+          <span class="badge badge-cyan" style="margin-bottom: 12px;">Official Release</span>
+          <h3>Get Vortex v1.0.1 Today</h3>
+          <p>
+            Download the official Windows installer or browser extensions. Clean, standalone, and ready to accelerate your downloads immediately after installation.
+          </p>
+          <div style="font-size: 0.88rem; color: var(--text-faint);">
+            <p><strong>System Requirements:</strong> Windows 10 / Windows 11 (64-bit)</p>
+            <p><strong>Integrity:</strong> Signed SHA-256 build verification included</p>
+          </div>
+        </div>
+
+        <div class="download-file-list">
+          <!-- Windows Installer -->
+          <a href="https://github.com/BreadBoard-Dev/vortex-releases/releases/download/v1.0.1/VortexDownloader_v1.0.1_Setup.exe" class="download-file-item" target="_blank" rel="noopener noreferrer">
+            <div class="download-file-meta">
+              <span class="file-name">🪟 VortexDownloader_v1.0.1_Setup.exe</span>
+              <span class="file-detail">Windows Inno Setup Installer • ~140 MB</span>
+            </div>
+            <span class="btn btn-primary btn-sm">Download</span>
+          </a>
+
+          <!-- Browser Extension -->
+          <a href="https://github.com/BreadBoard-Dev/vortex-releases/releases/latest" class="download-file-item" target="_blank" rel="noopener noreferrer">
+            <div class="download-file-meta">
+              <span class="file-name">🧩 Browser Extension (MV3)</span>
+              <span class="file-detail">Chrome, Edge, Brave, Opera (.crx / .zip)</span>
+            </div>
+            <span class="btn btn-secondary btn-sm">Get Extension</span>
+          </a>
+
+          <!-- Firefox Extension -->
+          <a href="https://github.com/BreadBoard-Dev/vortex-releases/releases/latest" class="download-file-item" target="_blank" rel="noopener noreferrer">
+            <div class="download-file-meta">
+              <span class="file-name">🦊 Firefox WebExtension</span>
+              <span class="file-detail">Mozilla Firefox Signed (.xpi)</span>
+            </div>
+            <span class="btn btn-secondary btn-sm">Get .xpi</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="section-header">
+        <span class="badge badge-cyan section-tag">Got Questions?</span>
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        <p class="section-subtitle">
+          Everything you need to know about Vortex Download Manager, licensing, and browser integration.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does Vortex dynamic work-stealing make downloads faster?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Standard download managers split a file into static parts at the start. If one connection slows down or finishes early, your bandwidth is underutilized. Vortex continuously monitors active connections; whenever a socket completes its segment, it dynamically calculates the midpoint of the largest unfinished segment and splits it in real time, keeping all 32 connections saturated until the final byte.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do I activate my Lifetime License key after paying ₹200 on Razorpay?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>After completing your ₹200 payment via Razorpay, your digital license key will be displayed and emailed to you. In Vortex Download Manager, go to <strong>Help → Enter License Key</strong>, paste your key, and click <strong>Activate</strong>. Your lifetime license activates immediately with zero restart required.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do I activate a WinningPC or GOTD 1-Year Promotional key?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Copy the promotional key provided during the giveaway campaign. Open Vortex Download Manager, navigate to <strong>Settings → License</strong> or click <strong>Activate Giveaway Key</strong> in the Help menu, paste the key, and click <strong>Activate</strong>. The app will confirm your 365 days of full premium validity.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How does browser integration work with Chrome, Edge, and Firefox?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Vortex includes a Manifest V3 browser extension and a registered Native Messaging host (<code style="color: #38bdf8;">com.vortex.vdm</code>). When you click a download in your browser, the extension intercepts the URL, session cookies, and headers, passing them directly to the Vortex core engine for accelerated segmented download.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>What happens after the 30-day evaluation trial expires?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>During the 30 days, you enjoy 100% of the software's capabilities with zero restrictions. Once the trial ends, you will be prompted to enter a perpetual license key (₹200) or an active giveaway key to continue accelerating downloads.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            <span>How do I get help or report an issue?</span>
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            <p>Our official developer support email is <strong style="color: #38bdf8;">VDM.BREADBOARD@proton.me</strong>. You can reach out anytime for license recovery, integration troubleshooting, or feature requests.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo">
+            <div class="logo-icon">⚡</div>
+            <span class="brand-text">Vortex DM</span>
+          </div>
+          <p>
+            Vortex Download Manager is a high-performance download accelerator engineered for maximum socket saturation and reliable resumption.
+          </p>
+        </div>
+
+        <div class="footer-col">
+          <h4>Navigation</h4>
+          <ul class="footer-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#gallery">Snapshots</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#download">Downloads</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Licensing</h4>
+          <ul class="footer-links">
+            <li><a href="https://rzp.io/rzp/VDMPP" target="_blank" rel="noopener noreferrer">Buy Lifetime (₹200)</a></li>
+            <li><a href="#pricing">30-Day Evaluation</a></li>
+            <li><a href="#pricing">Giveaway Promotions</a></li>
+            <li><a href="#faq">Activation Guide</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Support & Contact</h4>
+          <ul class="footer-links">
+            <li><a href="mailto:VDM.BREADBOARD@proton.me">VDM.BREADBOARD@proton.me</a></li>
+            <li><a href="https://github.com/BreadBoard-Dev/vortex-releases" target="_blank" rel="noopener noreferrer">Releases Repository</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2026 BreadBoard. All rights reserved. Vortex Download Manager (VDM).</span>
+        <span>Version 1.0.1 • Fast, Segmented, Reliable</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div class="lightbox-modal" id="lightboxModal">
+    <div class="lightbox-content">
+      <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox">&times;</button>
+      <button class="lightbox-nav lightbox-prev" id="lightboxPrev" aria-label="Previous Image">&#10094;</button>
+      <img src="" alt="" class="lightbox-img" id="lightboxImg">
+      <button class="lightbox-nav lightbox-next" id="lightboxNext" aria-label="Next Image">&#10095;</button>
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
