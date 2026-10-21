@@ -1,81 +1,52 @@
 # 🌐 Vortex Download Manager — Official Landing Page & Website
 
-This folder contains the complete, production-ready static website for **Vortex Download Manager (VDM)**, specifically optimized for **GitHub Pages** hosting with zero build steps or external dependencies.
+This folder contains the complete, standalone static website for **Vortex Download Manager (VDM)**, optimized for **GitHub Pages** hosting with zero build steps or external dependencies.
 
 ---
 
 ## 🚀 Live Features Included
-- **Hero & 3D Cover Mockup**: Displays the official 3D retail product box with glowing badges and quick actions.
-- **Interactive Snapshot Showcase**: Categorized filter tabs (All, Dashboard, Settings, Licensing, Developer Tools) and a full-screen **Lightbox modal** with keyboard navigation (`←`, `→`, `Esc`).
-- **All 16 High-Res Snapshots**: Bundled in `snapshots/` folder covering the desktop UI, visualizer, settings, and license managers.
-- **Pricing & Licensing Breakdown**: Clear comparison between 30-Day Free Trial, 1-Year Giveaway (WinningPC / GOTD), and ₹200 INR Perpetual Lifetime License with direct Razorpay integration link (`https://rzp.io/rzp/VDMPP`).
-- **Download Hub**: Windows installer (`VortexDownloader_v1.0.1_Setup.exe`) and browser extensions download links.
+- **New 3D Retail Box Mockup**: Features the sleek dark software packaging with tornado vortex branding, multi-browser badges, and core feature pillars.
+- **Automatic GitHub Release Sync**:
+  - Automatically queries the GitHub Releases API (`BreadBoard-Dev/vortex-releases`).
+  - Seamlessly updates the version tag (`v1.0.2`, `v1.0.3`, etc.), direct `.exe` installer download link, file size, and release date in real time without needing to edit the HTML!
+  - Built-in fallback ensuring it gracefully displays `v1.0.2` if offline or rate-limited.
+- **Customer Snapshots Only**: All developer/internal license manager tools have been removed; displays 13 user-facing screenshots with full Lightbox modal (`←`, `→`, `Esc`).
+- **Pricing & Licensing Breakdown**: Clear comparison between 30-Day Free Trial, 1-Year Giveaway (WinningPC / GOTD), and ₹200 INR Perpetual Lifetime License with direct Razorpay checkout (`https://rzp.io/rzp/VDMPP`).
+- **Download Hub**: Windows installer and browser extensions download links.
 - **FAQ Accordion & Support**: Interactive FAQ and official contact (`VDM.BREADBOARD@proton.me`).
 
 ---
 
 ## 📦 How to Publish to GitHub Pages (3 Steps)
 
-### Option A: Create a Dedicated Website Repository (Recommended)
+### Step 1: Create a Public Repository on GitHub
+Create a new **Public** repository named:
+```text
+vortex-website
+```
+*(or `vortex-releases` if hosting directly alongside releases)*
 
-1. On GitHub, create a new **Public** repository named:
-   ```text
-   vortex-website
-   ```
-   *(or `vortex-dm.github.io` for a root user domain)*
+### Step 2: Push the `vortex-website` Folder
+Open PowerShell in this directory:
+```powershell
+cd "c:\Users\Prasad Gawas\Downloads\antigravity\notes\vortex-website"
+git init
+git add .
+git commit -m "feat: release v1.0.2 landing page with auto release sync and updated mockup"
+git branch -M main
+git remote add origin https://github.com/BreadBoard-Dev/vortex-website.git
+git push -u origin main
+```
 
-2. In this folder (`vortex-website`), initialize git and push:
-   ```bash
-   cd vortex-website
-   git init
-   git add .
-   git commit -m "feat: initial release of Vortex DM landing page"
-   git branch -M main
-   git remote add origin https://github.com/BreadBoard-Dev/vortex-website.git
-   git push -u origin main
-   ```
-
-3. In your new GitHub repository:
-   - Go to **Settings** → **Pages** (under "Code and automation").
-   - Under **Build and deployment**:
-     - Source: **Deploy from a branch**
-     - Branch: **`main`** / Folder: **`/ (root)`**
-   - Click **Save**.
+### Step 3: Turn on GitHub Pages
+1. Go to your repository **Settings** → **Pages** (under *Code and automation*).
+2. Under **Build and deployment**, select:
+   - Source: **Deploy from a branch**
+   - Branch: **`main`** / Folder: **`/ (root)`**
+3. Click **Save**.
 
 Your website will be live in ~60 seconds at:
 ```text
 https://BreadBoard-Dev.github.io/vortex-website/
 ```
-
----
-
-### Option B: Host directly from the Public Releases Repository
-If you created `vortex-releases`, you can place these files on the `gh-pages` branch or the `/docs` folder in `vortex-releases` to keep downloads and the website under one single repo!
-
----
-
-## 📁 Directory Structure
-```
-vortex-website/
-├── index.html        # Main landing page (HTML5, semantic, SEO-friendly)
-├── style.css         # Modern dark tech theme, glassmorphism, responsive grid
-├── script.js         # Lightbox gallery, category filter, FAQ accordion, mobile nav
-├── README.md         # Deployment & hosting guide
-└── snapshots/        # All 16 high-resolution product & interface screenshots
-    ├── 01_vortex_main_dashboard.png
-    ├── 02_vortex_segment_visualizer_telemetry.png
-    ├── 03_vortex_add_download_dialog.png
-    ├── 04_vortex_browser_integration_manager.png
-    ├── 05_vortex_settings_engine_limits.png
-    ├── 06_vortex_settings_browser_tab.png
-    ├── 07_vortex_settings_license_giveaway.png
-    ├── 08_vortex_settings_updates_about.png
-    ├── 09_vortex_license_modal_giveaway.png
-    ├── 10_vortex_license_modal_lifetime.png
-    ├── 11_vortex_update_checker_uptodate.png
-    ├── 12_vortex_checksum_integrity_verifier.png
-    ├── 13_vortex_license_manager_single_key.png
-    ├── 14_vortex_license_manager_batch_generator.png
-    ├── 15_vortex_license_manager_revocation_feed.png
-    └── 16_vortex_product_cover_box.png
-```
+*(Every future GitHub release published under `vortex-releases` will automatically reflect on your live website!)*

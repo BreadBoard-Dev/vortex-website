@@ -1,6 +1,134 @@
 document.addEventListener('DOMContentLoaded', () => {
   // ==========================================================================
-  // GALLERY DATA & LIGHTBOX
+  // AUTOMATIC GITHUB RELEASE DETECTOR
+  // Automatically keeps version, download links, file sizes, and notes up-to-date
+  // ==========================================================================
+  const REPOS = [
+    'BreadBoard-Dev/vortex-releases',
+    'BreadBoard-Dev/vortex-dm'
+  ];
+
+  // Default fallback values if offline, rate-limited, or pre-release
+  const DEFAULT_RELEASE = {
+    version: '1.0.2',
+    tag: 'v1.0.2',
+    title: 'Vortex Download Manager v1.0.2',
+    publishedAt: 'October 2026',
+    downloadUrl: 'https://github.com/BreadBoard-Dev/vortex-releases/releases/download/v1.0.2/VortexDownloader_v1.0.2_Setup.exe',
+    fileName: 'VortexDownloader_v1.0.2_Setup.exe',
+    fileSize: '~140 MB',
+    releaseUrl: 'https://github.com/BreadBoard-Dev/vortex-releases/releases/latest',
+    body: 'Automated segmented download acceleration, dynamic chunk work-stealing, and browser integration.'
+  };
+
+  async function fetchLatestRelease() {
+    let releaseData = null;
+
+    for (const repo of REPOS) {
+      try {
+        const response = await fetch(`https://api.github.com/repos/${repo}/releases/latest`, {
+          headers: { 'Accept': 'application/vnd.github.v3+json' }
+        });
+
+        if (response.ok) {
+          const data = await response.json();
+          if (data && data.tag_name) {
+            const rawTag = data.tag_name;
+            const cleanVersion = rawTag.startsWith('v') ? rawTag.substring(1) : rawTag;
+            
+            // Find Windows installer asset (.exe)
+            let installerAsset = null;
+            if (Array.isArray(data.assets) && data.assets.length > 0) {
+              installerAsset = data.assets.find(a => a.name.toLowerCase().endsWith('.exe'));
+            }
+
+            const downloadUrl = installerAsset 
+              ? installerAsset.browser_download_url 
+              : `https://github.com/${repo}/releases/download/${rawTag}/VortexDownloader_${rawTag}_Setup.exe`;
+
+            const fileName = installerAsset ? installerAsset.name : `VortexDownloader_${rawTag}_Setup.exe`;
+            const fileSize = installerAsset ? (installerAsset.size / (1024 * 1024)).toFixed(1) + ' MB' : '~140 MB';
+
+            let formattedDate = DEFAULT_RELEASE.publishedAt;
+            if (data.published_at) {
+              const d = new Date(data.published_at);
+              formattedDate = d.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+            }
+
+            releaseData = {
+              version: cleanVersion,
+              tag: rawTag.startsWith('v') ? rawTag : `v${rawTag}`,
+              title: data.name || `Vortex Download Manager v${cleanVersion}`,
+              publishedAt: formattedDate,
+              downloadUrl: downloadUrl,
+              fileName: fileName,
+              fileSize: fileSize,
+              releaseUrl: data.html_url || `https://github.com/${repo}/releases/latest`,
+              body: data.body || DEFAULT_RELEASE.body
+            };
+            break;
+          }
+        }
+      } catch (err) {
+        console.warn(`Could not fetch releases from ${repo}:`, err);
+      }
+    }
+
+    applyReleaseToPage(releaseData || DEFAULT_RELEASE);
+  }
+
+  function applyReleaseToPage(rel) {
+    // 1. Version labels (e.g. "v1.0.2")
+    document.querySelectorAll('[data-release-version]').forEach(el => {
+      el.textContent = rel.tag;
+    });
+
+    // 2. Numeric version only (e.g. "1.0.2")
+    document.querySelectorAll('[data-release-num]').forEach(el => {
+      el.textContent = rel.version;
+    });
+
+    // 3. Download link URLs
+    document.querySelectorAll('[data-release-download]').forEach(el => {
+      el.setAttribute('href', rel.downloadUrl);
+    });
+
+    // 4. Installer File Name
+    document.querySelectorAll('[data-release-filename]').forEach(el => {
+      el.textContent = `🪟 ${rel.fileName}`;
+    });
+
+    // 5. File Size
+    document.querySelectorAll('[data-release-size]').forEach(el => {
+      el.textContent = `Windows Inno Setup Installer • ${rel.fileSize}`;
+    });
+
+    // 6. Release Date
+    document.querySelectorAll('[data-release-date]').forEach(el => {
+      el.textContent = rel.publishedAt;
+    });
+
+    // 7. Full Release page URL
+    document.querySelectorAll('[data-release-url]').forEach(el => {
+      el.setAttribute('href', rel.releaseUrl);
+    });
+
+    // 8. Dynamic Release Banner if notes are present
+    const notesContainer = document.getElementById('latestReleaseNotes');
+    if (notesContainer && rel.body) {
+      notesContainer.innerHTML = `
+        <div class="release-auto-badge">
+          <span class="live-dot"></span> Live from GitHub: <strong>${rel.tag}</strong> (${rel.publishedAt})
+        </div>
+      `;
+    }
+  }
+
+  // Trigger automatic check
+  fetchLatestRelease();
+
+  // ==========================================================================
+  // GALLERY DATA (WITHOUT DEVELOPER LICENSE MANAGER SNAPSHOTS)
   // ==========================================================================
   const galleryItems = [
     {
@@ -8,129 +136,107 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Main Download Dashboard',
       category: 'dashboard',
       badge: 'Core UI',
-      desc: 'Real-time task queue with transfer speeds, dynamic progress bars, file categorization, and instant controls.'
+      desc: 'Real-time task queue with dynamic transfer speeds, file category classification, and individual task controls.'
     },
     {
       src: 'snapshots/02_vortex_segment_visualizer_telemetry.png',
       title: 'Dynamic Segment Visualizer',
       category: 'dashboard',
       badge: 'Telemetry',
-      desc: 'Live telemetry displaying individual socket connections, chunk byte ranges, and dynamic work-stealing re-segmentation.'
+      desc: 'Real-time telemetry showing parallel socket streams, byte boundaries, and dynamic chunk work-stealing splits.'
     },
     {
       src: 'snapshots/03_vortex_add_download_dialog.png',
       title: 'Add Download Dialog',
       category: 'dashboard',
       badge: 'Task Creation',
-      desc: 'Custom download configuration supporting custom thread counts (1-32), session cookies, referer headers, and destination paths.'
+      desc: 'Custom download task setup supporting 1 to 32 parallel sockets, session cookies, referer headers, and destination paths.'
+    },
+    {
+      src: 'snapshots/vortex_product_box.jpg',
+      title: 'Official 3D Retail Box',
+      category: 'dashboard',
+      badge: 'Product Packaging',
+      desc: 'Official 3D packaging mockup with blue vortex tornado branding, multi-browser badges, and core feature pillars.'
     },
     {
       src: 'snapshots/04_vortex_browser_integration_manager.png',
       title: 'Browser Integration Hub',
       category: 'settings',
       badge: 'Extensions',
-      desc: 'One-click native messaging bridge setup and health check for Google Chrome, Microsoft Edge, Brave, and Mozilla Firefox.'
+      desc: 'One-click native messaging bridge setup and health monitor for Chrome, Edge, Brave, and Firefox.'
     },
     {
       src: 'snapshots/05_vortex_settings_engine_limits.png',
       title: 'Engine & Bandwidth Limits',
       category: 'settings',
       badge: 'Performance',
-      desc: 'Fine-tune token-bucket rate limits, socket buffers, pre-allocation disk strategies, and maximum concurrent connections.'
+      desc: 'Fine-tune token-bucket rate limits, socket buffers, disk pre-allocation, and maximum concurrent connections.'
     },
     {
       src: 'snapshots/06_vortex_settings_browser_tab.png',
       title: 'Browser Extension Settings',
       category: 'settings',
       badge: 'Integration',
-      desc: 'Configure automated browser download interception, media stream sniffer badges, and excluded domain lists.'
+      desc: 'Configure automated browser download interception, media stream sniffer badges, and domain exclude lists.'
     },
     {
       src: 'snapshots/07_vortex_settings_license_giveaway.png',
       title: '1-Year Giveaway Status',
       category: 'license',
       badge: 'Giveaway',
-      desc: 'Official giveaway license view showing active status, remaining validity days countdown, and anti-rollback verification.'
+      desc: 'Promotional giveaway license view displaying active validity status, countdown of remaining days, and anti-rollback verification.'
     },
     {
       src: 'snapshots/08_vortex_settings_updates_about.png',
       title: 'Updates & About Engine',
       category: 'settings',
       badge: 'System Info',
-      desc: 'System info, active build version v1.0.1, official developer contacts, and direct update channel controls.'
+      desc: 'System info, version status, official developer contact, and direct update channel controls.'
     },
     {
       src: 'snapshots/09_vortex_license_modal_giveaway.png',
       title: 'Giveaway Key Activation',
       category: 'license',
       badge: 'Promotion',
-      desc: 'Dedicated activation screen for WinningPC and Giveaway of the Day promotional 1-Year license keys.'
+      desc: 'In-app activation screen for WinningPC and Giveaway of the Day promotional 1-Year license keys.'
     },
     {
       src: 'snapshots/10_vortex_license_modal_lifetime.png',
       title: 'Perpetual Lifetime Activation',
       category: 'license',
       badge: 'Lifetime',
-      desc: 'Instant lifetime license activation with direct Razorpay payment link integration (₹200 INR).'
+      desc: 'Instant lifetime license activation dialog with direct Razorpay payment link integration (₹200 INR).'
     },
     {
       src: 'snapshots/11_vortex_update_checker_uptodate.png',
       title: 'In-App Update Checker',
-      category: 'settings',
+      category: 'tools',
       badge: 'Updates',
-      desc: 'Fast, secure version check against official update feeds with silent fallback verification.'
+      desc: 'Instant release checking against official feeds, verifying the current build is up-to-date.'
     },
     {
       src: 'snapshots/12_vortex_checksum_integrity_verifier.png',
       title: 'Checksum Integrity Verifier',
       category: 'tools',
       badge: 'Security',
-      desc: 'Built-in cryptographic hash calculator supporting SHA-256, SHA-1, and MD5 verification for downloaded files.'
-    },
-    {
-      src: 'snapshots/13_vortex_license_manager_single_key.png',
-      title: 'Developer License Manager',
-      category: 'tools',
-      badge: 'Dev Utility',
-      desc: 'Standalone developer tool for cryptographic ECDSA key issuance, license inspection, and hardware ID signing.'
-    },
-    {
-      src: 'snapshots/14_vortex_license_manager_batch_generator.png',
-      title: 'Batch Giveaway Generator',
-      category: 'tools',
-      badge: 'Promotions',
-      desc: 'High-speed batch key generator for promotional distribution campaigns (WinningPC, GOTD) with exportable feeds.'
-    },
-    {
-      src: 'snapshots/15_vortex_license_manager_revocation_feed.png',
-      title: 'Remote Revocation Engine',
-      category: 'tools',
-      badge: 'Security',
-      desc: 'IDM-style remote revocation feed manager ensuring unauthorized or leaked keys are protected against.'
-    },
-    {
-      src: 'snapshots/16_vortex_product_cover_box.png',
-      title: '3D Retail Product Cover',
-      category: 'dashboard',
-      badge: 'Cover Mockup',
-      desc: 'Official 3D retail software box mockup featuring electric cyber gradient, glowing vortex branding, and #1 Download Manager badge.'
+      desc: 'Built-in cryptographic hash calculator supporting SHA-256, SHA-1, and MD5 file integrity verification.'
     }
   ];
 
   const galleryGrid = document.getElementById('galleryGrid');
   const filterBtns = document.querySelectorAll('.filter-btn');
 
-  // Render Gallery Items
   function renderGallery(filter = 'all') {
+    if (!galleryGrid) return;
     galleryGrid.innerHTML = '';
     const filtered = filter === 'all' 
       ? galleryItems 
       : galleryItems.filter(item => item.category === filter);
 
-    filtered.forEach((item, index) => {
+    filtered.forEach((item) => {
       const card = document.createElement('div');
       card.className = 'gallery-item';
-      card.dataset.index = galleryItems.indexOf(item);
       card.innerHTML = `
         <div class="gallery-thumb-wrap">
           <img class="gallery-thumb" src="${item.src}" alt="${item.title}" loading="lazy">
@@ -146,7 +252,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // Filter Buttons
   filterBtns.forEach(btn => {
     btn.addEventListener('click', () => {
       filterBtns.forEach(b => b.classList.remove('active'));
@@ -167,40 +272,52 @@ document.addEventListener('DOMContentLoaded', () => {
   function openLightbox(index) {
     currentIndex = index;
     updateLightbox();
-    lightboxModal.classList.add('active');
-    document.body.style.overflow = 'hidden';
+    if (lightboxModal) {
+      lightboxModal.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
   }
 
   function closeLightbox() {
-    lightboxModal.classList.remove('active');
-    document.body.style.overflow = '';
+    if (lightboxModal) {
+      lightboxModal.classList.remove('active');
+      document.body.style.overflow = '';
+    }
   }
 
   function updateLightbox() {
     const item = galleryItems[currentIndex];
-    lightboxImg.src = item.src;
-    lightboxCaption.innerHTML = `<strong>${item.title}</strong> — ${item.desc}`;
+    if (lightboxImg && item) {
+      lightboxImg.src = item.src;
+      lightboxCaption.innerHTML = `<strong>${item.title}</strong> — ${item.desc}`;
+    }
   }
 
-  lightboxClose.addEventListener('click', closeLightbox);
-  lightboxModal.addEventListener('click', (e) => {
-    if (e.target === lightboxModal) closeLightbox();
-  });
+  if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+  if (lightboxModal) {
+    lightboxModal.addEventListener('click', (e) => {
+      if (e.target === lightboxModal) closeLightbox();
+    });
+  }
 
-  lightboxPrev.addEventListener('click', (e) => {
-    e.stopPropagation();
-    currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
-    updateLightbox();
-  });
+  if (lightboxPrev) {
+    lightboxPrev.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
+      updateLightbox();
+    });
+  }
 
-  lightboxNext.addEventListener('click', (e) => {
-    e.stopPropagation();
-    currentIndex = (currentIndex + 1) % galleryItems.length;
-    updateLightbox();
-  });
+  if (lightboxNext) {
+    lightboxNext.addEventListener('click', (e) => {
+      e.stopPropagation();
+      currentIndex = (currentIndex + 1) % galleryItems.length;
+      updateLightbox();
+    });
+  }
 
   document.addEventListener('keydown', (e) => {
-    if (!lightboxModal.classList.contains('active')) return;
+    if (!lightboxModal || !lightboxModal.classList.contains('active')) return;
     if (e.key === 'Escape') closeLightbox();
     if (e.key === 'ArrowLeft') {
       currentIndex = (currentIndex - 1 + galleryItems.length) % galleryItems.length;
@@ -212,26 +329,25 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Initialize Gallery
   renderGallery('all');
 
-  // ==========================================================================
-  // FAQ ACCORDION
-  // ==========================================================================
+  // FAQ Accordion
   const faqItems = document.querySelectorAll('.faq-item');
   faqItems.forEach(item => {
     const question = item.querySelector('.faq-question');
-    question.addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-      faqItems.forEach(i => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
-    });
+    if (question) {
+      question.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+        faqItems.forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    }
   });
 
-  // Mobile navigation toggle (simple smooth toggle)
+  // Mobile navigation toggle
   const mobileToggle = document.getElementById('mobileToggle');
   const navLinks = document.querySelector('.nav-links');
-  if (mobileToggle) {
+  if (mobileToggle && navLinks) {
     mobileToggle.addEventListener('click', () => {
       if (navLinks.style.display === 'flex') {
         navLinks.style.display = 'none';

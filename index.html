@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/png" href="snapshots/16_vortex_product_cover_box.png">
+  <link rel="icon" type="image/jpeg" href="snapshots/vortex_product_box.jpg">
 </head>
 <body>
 
@@ -31,7 +31,9 @@
 
       <div class="nav-actions">
         <a href="#pricing" class="btn btn-secondary btn-sm">Buy License (₹200)</a>
-        <a href="#download" class="btn btn-primary btn-sm">Download v1.0.1</a>
+        <a href="https://github.com/BreadBoard-Dev/vortex-releases/releases/download/v1.0.2/VortexDownloader_v1.0.2_Setup.exe" class="btn btn-primary btn-sm" data-release-download>
+          Download <span data-release-version>v1.0.2</span>
+        </a>
         <button class="mobile-toggle" id="mobileToggle" aria-label="Toggle Navigation">☰</button>
       </div>
     </div>
@@ -41,22 +43,23 @@
   <section class="hero-section" id="hero">
     <div class="container hero-grid">
       <div class="hero-content">
-        <div>
-          <span class="badge badge-cyan">v1.0.1 Released • Windows & Android Available</span>
+        <div style="display: flex; align-items: center; gap: 10px; flex-wrap: wrap;">
+          <span class="badge badge-cyan"><span data-release-version>v1.0.2</span> Released • Windows & Android Available</span>
+          <span id="latestReleaseNotes"></span>
         </div>
         <h1 class="hero-headline">
-          Maximum Speed <br>
-          <span class="text-gradient">Segmented Download</span><br>
-          Accelerator
+          Faster. Smarter. Simpler.<br>
+          <span class="text-gradient">Turbocharged Downloads</span><br>
+          for a Better Internet
         </h1>
         <p class="hero-lead">
-          Engineered for raw transfer saturation. Features dynamic socket work-stealing, disk pre-allocation, Manifest V3 browser integration, and instant crash recovery—with zero bloated external dependencies.
+          Engineered for raw throughput saturation. Features dynamic socket work-stealing, disk pre-allocation, Manifest V3 browser integration, and instant crash recovery—with zero bloated external dependencies.
         </p>
 
         <div class="hero-actions">
-          <a href="#download" class="btn btn-primary">
+          <a href="https://github.com/BreadBoard-Dev/vortex-releases/releases/download/v1.0.2/VortexDownloader_v1.0.2_Setup.exe" class="btn btn-primary" data-release-download>
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-            Download v1.0.1 Free Trial
+            Download <span data-release-version>v1.0.2</span> Free Trial
           </a>
           <a href="https://rzp.io/rzp/VDMPP" target="_blank" rel="noopener noreferrer" class="btn btn-secondary">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2" ry="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
@@ -73,7 +76,7 @@
 
       <div class="hero-visual">
         <div class="product-box-wrapper">
-          <img src="snapshots/16_vortex_product_cover_box.png" alt="Vortex Download Manager 3D Retail Box" class="product-box-img">
+          <img src="snapshots/vortex_product_box.jpg" alt="Vortex Download Manager 3D Retail Box Mockup" class="product-box-img">
           
           <div class="floating-pill floating-pill-1">
             <span style="color: #38bdf8; font-size: 1.1rem;">⚡</span>
@@ -210,7 +213,7 @@
           <p class="feature-desc">
             Check for new releases with one click from within the desktop app (<code style="color: #38bdf8;">Help → Check for Updates</code>) without needing to visit third-party download sites.
           </p>
-          <span class="feature-pill">v1.0.1 Ready</span>
+          <span class="feature-pill"><span data-release-version>v1.0.2</span> Ready</span>
         </div>
       </div>
     </div>
@@ -223,17 +226,17 @@
         <span class="badge badge-pink section-tag">Visual Tour</span>
         <h2 class="section-title">Application Snapshots & Interface</h2>
         <p class="section-subtitle">
-          Explore the clean dark-mode desktop interface, live telemetry, browser integration hub, and developer utility suite. Click any snapshot to expand in high resolution.
+          Explore the clean dark-mode desktop interface, live telemetry, browser integration hub, and customer license activation screens. Click any snapshot to expand in high resolution.
         </p>
       </div>
 
       <!-- Category Filter Tabs -->
       <div class="gallery-filters">
-        <button class="filter-btn active" data-filter="all">All Snapshots (16)</button>
+        <button class="filter-btn active" data-filter="all">All Snapshots (13)</button>
         <button class="filter-btn" data-filter="dashboard">Dashboard & Visualizer</button>
         <button class="filter-btn" data-filter="settings">Settings & Integration</button>
-        <button class="filter-btn" data-filter="license">Licensing & Updates</button>
-        <button class="filter-btn" data-filter="tools">Developer Tools</button>
+        <button class="filter-btn" data-filter="license">Licensing</button>
+        <button class="filter-btn" data-filter="tools">Utilities & Tools</button>
       </div>
 
       <!-- Gallery Grid -->
@@ -320,28 +323,28 @@
       <div class="download-box">
         <div class="download-info">
           <span class="badge badge-cyan" style="margin-bottom: 12px;">Official Release</span>
-          <h3>Get Vortex v1.0.1 Today</h3>
+          <h3>Get Vortex <span data-release-version>v1.0.2</span> Today</h3>
           <p>
             Download the official Windows installer or browser extensions. Clean, standalone, and ready to accelerate your downloads immediately after installation.
           </p>
           <div style="font-size: 0.88rem; color: var(--text-faint);">
             <p><strong>System Requirements:</strong> Windows 10 / Windows 11 (64-bit)</p>
-            <p><strong>Integrity:</strong> Signed SHA-256 build verification included</p>
+            <p><strong>Auto-Updated Release:</strong> <span data-release-date>October 2026</span></p>
           </div>
         </div>
 
         <div class="download-file-list">
-          <!-- Windows Installer -->
-          <a href="https://github.com/BreadBoard-Dev/vortex-releases/releases/download/v1.0.1/VortexDownloader_v1.0.1_Setup.exe" class="download-file-item" target="_blank" rel="noopener noreferrer">
+          <!-- Windows Installer (Automatically updated by GitHub API) -->
+          <a href="https://github.com/BreadBoard-Dev/vortex-releases/releases/download/v1.0.2/VortexDownloader_v1.0.2_Setup.exe" class="download-file-item" target="_blank" rel="noopener noreferrer" data-release-download>
             <div class="download-file-meta">
-              <span class="file-name">🪟 VortexDownloader_v1.0.1_Setup.exe</span>
-              <span class="file-detail">Windows Inno Setup Installer • ~140 MB</span>
+              <span class="file-name" data-release-filename>🪟 VortexDownloader_v1.0.2_Setup.exe</span>
+              <span class="file-detail" data-release-size>Windows Inno Setup Installer • ~140 MB</span>
             </div>
             <span class="btn btn-primary btn-sm">Download</span>
           </a>
 
           <!-- Browser Extension -->
-          <a href="https://github.com/BreadBoard-Dev/vortex-releases/releases/latest" class="download-file-item" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/BreadBoard-Dev/vortex-releases/releases/latest" class="download-file-item" target="_blank" rel="noopener noreferrer" data-release-url>
             <div class="download-file-meta">
               <span class="file-name">🧩 Browser Extension (MV3)</span>
               <span class="file-detail">Chrome, Edge, Brave, Opera (.crx / .zip)</span>
@@ -350,7 +353,7 @@
           </a>
 
           <!-- Firefox Extension -->
-          <a href="https://github.com/BreadBoard-Dev/vortex-releases/releases/latest" class="download-file-item" target="_blank" rel="noopener noreferrer">
+          <a href="https://github.com/BreadBoard-Dev/vortex-releases/releases/latest" class="download-file-item" target="_blank" rel="noopener noreferrer" data-release-url>
             <div class="download-file-meta">
               <span class="file-name">🦊 Firefox WebExtension</span>
               <span class="file-detail">Mozilla Firefox Signed (.xpi)</span>
@@ -475,7 +478,7 @@
           <h4>Support & Contact</h4>
           <ul class="footer-links">
             <li><a href="mailto:VDM.BREADBOARD@proton.me">VDM.BREADBOARD@proton.me</a></li>
-            <li><a href="https://github.com/BreadBoard-Dev/vortex-releases" target="_blank" rel="noopener noreferrer">Releases Repository</a></li>
+            <li><a href="https://github.com/BreadBoard-Dev/vortex-releases" target="_blank" rel="noopener noreferrer" data-release-url>Releases Repository</a></li>
             <li><a href="#faq">FAQ</a></li>
           </ul>
         </div>
@@ -483,7 +486,7 @@
 
       <div class="footer-bottom">
         <span>© 2026 BreadBoard. All rights reserved. Vortex Download Manager (VDM).</span>
-        <span>Version 1.0.1 • Fast, Segmented, Reliable</span>
+        <span>Version <span data-release-num>1.0.2</span> • Fast, Segmented, Reliable</span>
       </div>
     </div>
   </footer>
