@@ -10,12 +10,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Default fallback values if offline, rate-limited, or pre-release
   const DEFAULT_RELEASE = {
-    version: '1.0.2',
-    tag: 'v1.0.2',
-    title: 'Vortex Download Manager v1.0.2',
+    version: '1.0.5',
+    tag: 'v1.0.5',
+    title: 'Vortex Download Manager v1.0.5',
     publishedAt: 'October 2026',
-    downloadUrl: 'https://github.com/BreadBoard-Dev/vortex-releases/releases/download/v1.0.2/VortexDownloader_v1.0.2_Setup.exe',
-    fileName: 'VortexDownloader_v1.0.2_Setup.exe',
+    downloadUrl: 'https://github.com/BreadBoard-Dev/vortex-releases/releases/download/v1.0.5/VortexDownloader_v1.0.5_Setup.exe',
+    fileName: 'VortexDownloader_v1.0.5_Setup.exe',
     fileSize: '~140 MB',
     releaseUrl: 'https://github.com/BreadBoard-Dev/vortex-releases/releases/latest',
     body: 'Automated segmented download acceleration, dynamic chunk work-stealing, and browser integration.'
@@ -78,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function applyReleaseToPage(rel) {
-    // 1. Version labels (e.g. "v1.0.2")
+    // 1. Version labels (e.g. "v1.0.5")
     document.querySelectorAll('[data-release-version]').forEach(el => {
       el.textContent = rel.tag;
     });
