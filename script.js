@@ -358,4 +358,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // ==========================================================================
+  // CLIENT-SIDE INSPECT & DEVTOOLS HARDENING
+  // Deters casual inspection, viewing page source, and shortcut tampering
+  // ==========================================================================
+  document.addEventListener('contextmenu', (e) => e.preventDefault());
+  document.addEventListener('keydown', (e) => {
+    // Disable F12, Ctrl+Shift+I (Inspect), Ctrl+Shift+J (Console), Ctrl+Shift+C, Ctrl+U (Source)
+    if (
+      e.key === 'F12' ||
+      (e.ctrlKey && e.shiftKey && ['I', 'i', 'J', 'j', 'C', 'c'].includes(e.key)) ||
+      (e.ctrlKey && ['u', 'U', 's', 'S'].includes(e.key))
+    ) {
+      e.preventDefault();
+      return false;
+    }
+  });
 });
