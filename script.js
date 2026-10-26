@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
       title: 'Giveaway Key Activation',
       category: 'license',
       badge: 'Promotion',
-      desc: 'In-app activation screen for WinningPC and Giveaway of the Day promotional 1-Year license keys.'
+      desc: 'In-app activation screen for Giveaway of the Day promotional 1-Year license keys.'
     },
     {
       src: 'snapshots/10_vortex_license_modal_lifetime.png',
